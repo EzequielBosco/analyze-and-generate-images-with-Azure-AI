@@ -2,6 +2,8 @@ import React from 'react'
 import { useState } from 'react'
 import analyzeImage from './services/azure-image-analysis.js'
 import ImageAnalysisResults from './components/ImageAnalysisResults.js'
+import dotenv from 'dotenv'
+dotenv.config()
 
 function App() {
   const [imageUrl, setImageUrl] = useState('')
@@ -15,7 +17,7 @@ function App() {
   const handleAnalysisClick = async () => {
     try {
       setLoading(true)
-      const apiKey = "fa682b4c9274498991d8cd2092fd38d9"
+      const apiKey = process.env.API_KEY_MS
       const endpoint = "https://courseanalyzeimage.cognitiveservices.azure.com"
 
       const analysisResults = await analyzeImage(imageUrl, apiKey, endpoint)
