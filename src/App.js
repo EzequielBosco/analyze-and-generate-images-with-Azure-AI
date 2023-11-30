@@ -19,7 +19,6 @@ function App() {
       setLoading(true)
       const apiKey = process.env.API_KEY_MS
       const endpoint = "https://courseanalyzeimage.cognitiveservices.azure.com"
-
       const analysisResults = await analyzeImage(imageUrl, apiKey, endpoint)
       setResults(analysisResults)
     } catch (error) {
